@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  mongodb_develop:
+    image: mongo:latest
+    container_name: db_develop
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_develop:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root4321
+
+  mongodb_test:
+    image: mongo:latest
+    container_name: db_test
+    ports:
+      - "37017:27017"
+    volumes:
+      - mongodb_data_test:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root4321
+
+volumes:
+  mongodb_data_develop:
+  mongodb_data_test:
